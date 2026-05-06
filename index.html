@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Unidad Educativa Vicente León | GOMISHQUI - Innovación y Emprendimiento</title>
+  <!-- Google Fonts + Icon Library -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fafbfe;
+      color: #1e2a3e;
+      scroll-behavior: smooth;
+    }
+
+    /* modern variables */
+    :root {
+      --primary-dark: #0f2b3d;
+      --primary-mid: #1e4a6e;
+      --accent-red: #a3322b;
+      --accent-gold: #d9a13b;
+      --soft-gray: #f0f4f8;
+      --card-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0,0,0,0.02);
+      --transition: all 0.25s ease;
+    }
+
+    /* header / nav */
+    .top-bar {
+      background: var(--primary-dark);
+      color: white;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      gap: 10px;
+    }
+
+    .contact-info span {
+      margin-right: 24px;
+    }
+
+    .contact-info i {
+      margin-right: 6px;
+      color: var(--accent-gold);
+    }
+
+    .social-icons a {
+      color: white;
+      margin-left: 18px;
+      transition: var(--transition);
+    }
+
+    .social-icons a:hover {
+      color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      flex-wrap: wrap;
+      border-bottom: 1px solid #e9edf2;
+    }
+
+    .logo h2 {
+      font-weight: 800;
+      font-size: 1.7rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, var(--primary-mid), var(--accent-red));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .logo p {
+      font-size: 0.75rem;
+      color: #5a6874;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #1f3b4c;
+      transition: var(--transition);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent-red);
+    }
+
+    /* hero section - técnica profesional con pseudo-elemento */
+    .hero {
+      position: relative;
+      padding: 120px 24px;
+      text-align: center;
+      color: white;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('img/img_gomishqui.jpg') center center / cover no-repeat;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 32px;
+      opacity: 0.9;
+    }
+
+    .btn-primary {
+      background: var(--accent-red);
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      transition: var(--transition);
+      box-shadow: 0 6px 14px rgba(163,50,43,0.3);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #8c2c26;
+      transform: translateY(-3px);
+    }
+
+    .btn-outline-light {
+      background: transparent;
+      border: 2px solid white;
+      padding: 10px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      margin-left: 12px;
+      transition: 0.2s;
+    }
+
+    .btn-outline-light:hover {
+      background: white;
+      color: var(--primary-dark);
+    }
+
+    /* section general */
+    .section {
+      padding: 80px 24px;
+      max-width: 1280px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--primary-dark);
+    }
+
+    .section-sub {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px;
+      color: #4a5b6b;
+      font-size: 1.05rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .card-modern {
+      background: white;
+      border-radius: 28px;
+      padding: 30px 24px;
+      box-shadow: var(--card-shadow);
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .card-modern:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 40px -20px rgba(0,0,0,0.15);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--accent-red);
+    }
+
+    .card-modern h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    /* proyecto estrella */
+    .project-showcase {
+      background: linear-gradient(120deg, #ffffff 0%, #fef9f0 100%);
+      border-radius: 48px;
+      margin-top: 30px;
+      padding: 40px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .gomishqui-badge {
+      background: var(--accent-red);
+      color: white;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+    }
+
+    .obj-list {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .obj-list li {
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .obj-list i {
+      color: var(--accent-gold);
+      font-size: 1.2rem;
+    }
+
+    .material-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .material-tag {
+      background: #eef2f7;
+      padding: 6px 18px;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .stats-bar {
+      background: var(--primary-mid);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      margin-top: 40px;
+      border-radius: 40px;
+    }
+
+    .stats-number {
+      font-size: 2.8rem;
+      font-weight: 800;
+    }
+
+    /* video */
+    .video-container {
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      margin-top: 20px;
+    }
+
+    iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+    }
+
+    footer {
+      background: var(--primary-dark);
+      color: #cfdfed;
+      padding: 48px 24px 24px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      background: #25D366;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      transition: 0.2s;
+      z-index: 99;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.05);
+      background: #20b859;
+    }
+
+    @media (max-width: 780px) {
+      .two-columns {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      nav {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .top-bar {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    .highlight {
+      border-left: 5px solid var(--accent-red);
+      background: #fff8f0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- top bar contacto profesional -->
+<div class="top-bar">
+  <div class="contact-info">
+    <span><i class="fas fa-map-marker-alt"></i> Latacunga, Ecuador</span>
+    <span><i class="fas fa-phone-alt"></i> +593 2 999 888</span>
+    <span><i class="fas fa-envelope"></i> innovacion@vicenteleon.edu.ec</span>
+  </div>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+  </div>
+</div>
+
+<!-- nav principal -->
+<nav>
+  <div class="logo">
+    <h2>Unidad Educativa <span style="color:#a3322b;">Vicente León</span></h2>
+    <p>Formación con futuro · Innovación y emprendimiento</p>
+  </div>
+  <div class="nav-links">
+    <a href="#">Inicio</a>
+    <a href="#gomishqui">Proyecto GOMISHQUI</a>
+    <a href="#feria">Feria Crea tu Futuro</a>
+    <a href="#institucion">La Institución</a>
+    <a href="#carreras">Oferta Académica</a>
+  </div>
+</nav>
+
+<!-- hero principal -->
+<div class="hero">
+  <h1>I Feria Juvenil de Emprendimiento <br>“Crea tu Futuro”</h1>
+  <p>Talento, ciencia y tradición se unen para transformar el agro ecuatoriano.<br>Conoce el proyecto GOMISHQUI, innovación desde el agave.</p>
+  <div>
+    <a href="#gomishqui" class="btn-primary"><i class="fas fa-seedling"></i> Conocer proyecto estrella</a>
+    <a href="#feria" class="btn-outline-light"><i class="fas fa-chalkboard-user"></i> Ver feria</a>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECCIÓN 1: PROYECTO GOMISHQUI (PRIMERO)       -->
+<!-- ============================================ -->
+<div class="section" id="gomishqui">
+  <div class="section-title">🍃 Proyecto insignia: <span style="color:#a3322b;">GOMISHQUI</span></div>
+  <div class="section-sub">Gomas alimenticias a partir de aguamiel de cabuya (Agave americana L.) · Agroindustria con valor agregado</div>
+
+  <div class="project-showcase">
+    <div class="two-columns">
+      <!-- columna izquierda: descripción + objetivos + IMAGEN -->
+      <div>
+        <span class="gomishqui-badge"><i class="fas fa-flask"></i> I+D + sostenibilidad</span>
+        <h2 style="font-size: 1.9rem; margin-bottom: 10px;">Gomishqui: tradición ancestral, innovación nutritiva</h2>
+        
+        <!-- IMAGEN 1: proceso o ingredientes -->
+        <div style="margin: 20px 0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+          <img src="img/proceso.jpg" alt="Elaboración de Gomishqui" style="width: 100%; height: auto; display: block;" onerror="this.src='https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=600'">
+        </div>
+        
+        <p style="margin-bottom: 20px; line-height: 1.5;">El presente trabajo propone la producción y comercialización de <strong>"GOMISHQUI"</strong>, gomas alimenticias elaboradas a base de aguamiel de cabuya. Aprovechamos una materia prima ancestral con alto valor nutricional, prolongamos su vida útil y generamos nuevas oportunidades económicas para comunidades rurales, impulsando el desarrollo sostenible.</p>
+        
+        <div style="background: #f6f9fe; padding: 20px; border-radius: 24px; margin: 20px 0;">
+          <h3><i class="fas fa-bullseye" style="color: #a3322b;"></i> Objetivo General</h3>
+          <p>Elaborar gomas alimenticias a partir de aguamiel de cabuya (<em>Agave americana L.</em>) como una alternativa de aprovechamiento agroindustrial.</p>
+          <h3 style="margin-top: 15px;"><i class="fas fa-list-check"></i> Objetivos Específicos</h3>
+          <ul class="obj-list">
+            <li><i class="fas fa-chart-simple"></i> Caracterizar el aguamiel de cabuya según composición nutricional y propiedades fisicoquímicas.</li>
+            <li><i class="fas fa-cube"></i> Formular y elaborar gomas alimenticias utilizando aguamiel de cabuya como edulcorante natural.</li>
+            <li><i class="fas fa-microscope"></i> Evaluar el proceso de elaboración mediante parámetros básicos de calidad y estabilidad.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- columna derecha: materiales + impacto + IMAGEN -->
+      <div>
+        <div style="background: white; border-radius: 28px; padding: 6px 0 0 0;">
+          <div class="card-modern" style="box-shadow: none; padding-top: 0;">
+            <h3><i class="fas fa-clipboard-list"></i> Materiales y equipos</h3>
+            <div class="material-grid">
+              <span class="material-tag">🌵 Aguamiel de cabuya</span>
+              <span class="material-tag">🍮 Gelatina sin sabor / pectina</span>
+              <span class="material-tag">🍋 Ácido cítrico</span>
+              <span class="material-tag">🎨 Colorante natural</span>
+              <span class="material-tag">💧 Agua potable</span>
+              <span class="material-tag">🧊 Moldes para gomas</span>
+              <span class="material-tag">🔥 Cocina / placa calefactora</span>
+              <span class="material-tag">🌡️ Termómetro</span>
+              <span class="material-tag">🥄 Utensilios acero inox.</span>
+            </div>
+            
+            <!-- IMAGEN 2: producto final o aguamiel -->
+            <div style="margin: 25px 0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+              <img src="img/presentacion.jpg" alt="Gomishqui - Gomas de aguamiel" style="width: 100%; height: auto; display: block;" onerror="this.src='https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600'">
+            </div>
+            
+            <h3 style="margin-top: 10px;"><i class="fas fa-leaf"></i> Valor agregado + sostenibilidad</h3>
+            <p>✔ Aprovechamiento de recursos locales y revalorización del agave.<br>
+            ✔ Prolongación de vida útil del aguamiel, reducción de desperdicios.<br>
+            ✔ Generación de empleo rural y diversificación productiva.<br>
+            ✔ Producto saludable, natural, sin conservantes artificiales.</p>
+            <h3 style="margin-top: 20px;"><i class="fas fa-chart-line"></i> Proyección empresarial</h3>
+            <p>Gomishqui se posiciona como una alternativa innovadora en el mercado de snacks funcionales. Con potencial de escalamiento, certificación de calidad y alianzas con asociaciones de productores de cabuya en los Andes ecuatorianos.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div>
+      <!-- video demostrativo del proyecto y contexto -->
+<div class="section">
+  <div class="section-title">Conoce más sobre nuestro proyecto</div>
+  <!-- <div class="section-sub">Demostración del proceso de elaboración de gomas con aguamiel de cabuya</div> -->
+  <div class="video-container">
+   <iframe 
+    src="https://www.tiktok.com/player/v1/7436101571869412638?&music_info=1&description=1" 
+    width="100%" 
+    height="600" 
+    allow="fullscreen"
+    style="border-radius: 20px; border: none;">
+  </iframe>
+  </div>
+  <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; color: #4a627a;">
+    <i class="fas fa-video"></i> Video referencial sobre el proceso de elaboración de gomitas, similar al utilizado en la formulación de GOMISHQUI.
+  </p>
+</div>
+
+<!-- Alternativa sin video - Galería de imágenes del proceso -->
+<div class="section">
+  <div class="section-sub">Así elaboramos GOMISHQUI en las aulas</div>
+  
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px;">
+    <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+      <img src="img/proceso.jpg" alt="Extracción de aguamiel" style="width: 100%; height: 200px; object-fit: cover;">
+      <p style="padding: 12px; text-align: center; font-size: 0.85rem;">🌵 Extracción del aguamiel de cabuya</p>
+    </div>
+    <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+      <img src="img/otras1.jpg" alt="Preparación de la mezcla" style="width: 100%; height: 200px; object-fit: cover;">
+      <p style="padding: 12px; text-align: center; font-size: 0.85rem;">🍯 Preparación de la mezcla</p>
+    </div>
+    <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+      <img src="img/otras2.jpg" alt="Producto final" style="width: 100%; height: 200px; object-fit: cover;">
+      <p style="padding: 12px; text-align: center; font-size: 0.85rem;">🍬 Gomishqui - Producto terminado</p>
+    </div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================ -->
+<!-- SECCIÓN 2: FERIA "CREA TU FUTURO"              -->
+<!-- ============================================ -->
+<div class="section" id="feria" style="background: var(--soft-gray); border-radius: 60px; margin: 20px auto 40px auto;">
+  <div class="two-columns" style="align-items: center;">
+    <div>
+      <span style="background: var(--accent-gold); padding: 5px 14px; border-radius: 60px; font-weight: bold; font-size: 0.75rem;">★ FERIA JUVENIL 2026</span>
+      <h2 style="margin: 20px 0 16px;">“Crea tu Futuro”</h2>
+      <p>La Unidad Educativa Vicente León participará en la I Feria Juvenil de Emprendimiento "Crea tu Futuro" organizada por el Ilustre Municipio de Latacunga, presentando el proyecto <strong>"GOMISHQUI"</strong>, una iniciativa desarrollada por estudiantes como resultado de su esfuerzo, creatividad e investigación en las aulas.</p>
+      <p><i class="fas fa-chalkboard-user" style="color: #d9a13b;"></i> <strong>Trabajo en las aulas:</strong> A través de un enfoque interdisciplinario, los estudiantes han combinado conocimientos de química de alimentos, administración y desarrollo sostenible para transformar el aguamiel de cabuya en un producto innovador con alto potencial agroindustrial.</p>
+    </div>
+    <div class="card-modern highlight">
+      <i class="fas fa-quote-left" style="font-size: 2rem; color: #a3322b;"></i>
+      <p style="font-size: 1rem; margin-top: 10px;">"Este proyecto demuestra que los jóvenes pueden transformar los recursos ancestrales en soluciones con impacto positivo, respetando el medio ambiente y generando desarrollo".</p>
+      <p style="margin-top: 15px;"><strong>— Padres de Familia, Feria CREA TU FUTURO</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECCIÓN 3: SOBRE LA UNIDAD EDUCATIVA          -->
+<!-- ============================================ -->
+<div class="section" id="institucion" style="background: white;">
+  <div class="section-title"> UNIDAD EDUCATIVA VICENTE LEÓN</div>
+  <div class="section-sub">Formando líderes con excelencia y valores desde 1840</div>
+  
+  <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+    
+    <!-- Texto institucional -->
+    <div>
+      <h2 style="font-size: 1.8rem; font-weight: 700; color: #0a3d62; margin-bottom: 20px;">UN LEGADO DE MÁS DE 180 AÑOS</h2>
+      
+      <p style="color: #4a5b6b; line-height: 1.7; margin-bottom: 20px;">
+        Fundada en <strong>1840</strong>, la Unidad Educativa Vicente León ha sido pionera en la educación de calidad en Latacunga, formando generaciones de profesionales y ciudadanos comprometidos con el desarrollo del país.
+      </p>
+      
+      <p style="color: #4a5b6b; line-height: 1.7; margin-bottom: 30px;">
+        Nuestro lema <strong style="color: #a3322b;">"Juventud Adelante"</strong> refleja el espíritu de superación y progreso que inculcamos en nuestros estudiantes.
+      </p>
+      
+      <div style="display: flex; gap: 50px; flex-wrap: wrap;">
+        <div>
+          <div style="font-size: 2.5rem; font-weight: 800; color: #a3322b;">15K+</div>
+          <div style="font-size: 0.85rem; color: #4a5b6b;">Egresados</div>
+        </div>
+        <div>
+          <div style="font-size: 2.5rem; font-weight: 800; color: #a3322b;">1</div>
+          <div style="font-size: 0.85rem; color: #4a5b6b;">Bachillerato en Ciencias</div>
+        </div>
+        <div>
+          <div style="font-size: 2.5rem; font-weight: 800; color: #a3322b;">3</div>
+          <div style="font-size: 0.85rem; color: #4a5b6b;">Bachillerato Técnico</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Imagen institucional -->
+    <div>
+      <img src="img/portada.jpg" 
+           alt="Unidad Educativa Vicente León" 
+           style="width: 100%; border-radius: 20px; box-shadow: 0 15px 25px rgba(0,0,0,0.1);">
+      <p style="text-align: center; margin-top: 12px; font-size: 0.8rem; color: #4a5b6b;">📸 Campus principal - Latacunga</p>
+    </div>
+    
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECCIÓN 4: OFERTA ACADÉMICA                   -->
+<!-- ============================================ -->
+<div class="section" id="carreras">
+  <div class="section-title">📚 Oferta Formativa Académica</div>
+  <div class="section-sub">Áreas técnicas y científicas para construir el futuro del país</div>
+  <div class="cards-grid">
+    <div class="card-modern">
+      <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+      <h3>Desarrollo de Software</h3>
+      <p>Apps web, inteligencia artificial, soluciones para industrias 4.0 y proyectos de impacto digital.</p>
+    </div>
+    <div class="card-modern">
+      <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+      <h3>Gestión Administrativa y Logística</h3>
+      <p>Optimización de procesos empresariales, cadena de suministro y emprendimientos sostenibles.</p>
+    </div>
+    <div class="card-modern">
+      <div class="card-icon"><i class="fas fa-futbol"></i></div>
+      <h3>Deportes y Recreación</h3>
+      <p>Gestión deportiva, actividad física y bienestar comunitario, formación integral.</p>
+    </div>
+    <div class="card-modern">
+      <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+      <h3>BGU · Ciencias</h3>
+      <p>Bachillerato general unificado con énfasis en investigación y educación superior.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- FOOTER                                        -->
+<!-- ============================================ -->
+<footer>
+  <div style="max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; text-align: left;">
+    
+    <div>
+      <h3 style="color: white; font-size: 1.3rem; margin-bottom: 15px;">VICENTE LEÓN</h3>
+      <p style="color: #cfdfed; margin-bottom: 10px;">Institución educativa con más de 180 años de tradición y excelencia en Latacunga.</p>
+      <p style="color: #d9a13b; font-style: italic;">"Inmortal Juventud Adelante"</p>
+    </div>
+    
+    <div>
+      <h4 style="color: white; margin-bottom: 15px;">Enlaces rápidos</h4>
+      <p><a href="#" style="color:#cfdfed; text-decoration: none; display: block; margin-bottom: 8px;">🏠 Inicio</a></p>
+      <p><a href="#gomishqui" style="color:#cfdfed; text-decoration: none; display: block; margin-bottom: 8px;">🍃 Proyecto Gomishqui</a></p>
+      <p><a href="#feria" style="color:#cfdfed; text-decoration: none; display: block; margin-bottom: 8px;">⭐ Feria Crea tu Futuro</a></p>
+      <p><a href="#institucion" style="color:#cfdfed; text-decoration: none; display: block; margin-bottom: 8px;">🏫 La Institución</a></p>
+      <p><a href="#carreras" style="color:#cfdfed; text-decoration: none; display: block; margin-bottom: 8px;">📚 Oferta formativa</a></p>
+    </div>
+    
+    <div>
+      <h4 style="color: white; margin-bottom: 15px;">Contacto</h4>
+      <p style="color: #cfdfed; margin-bottom: 8px;"><i class="fas fa-map-pin"></i> Av. Tahuantisuyo y Cañaris, Latacunga</p>
+      <p style="color: #cfdfed; margin-bottom: 8px;"><i class="fas fa-phone"></i> +593 2 999 888</p>
+      <p style="color: #cfdfed; margin-bottom: 8px;"><i class="fas fa-envelope"></i> info@vicenteleon.edu.ec</p>
+    </div>
+    
+  </div>
+  
+  <hr style="margin: 30px 0 20px; border-color: #2c577a;">
+  
+  <p style="text-align: center; color: #cfdfed;">&copy; 2026 Unidad Educativa Vicente León · Feria Juvenil de Emprendimiento "Crea tu Futuro" · Todos los derechos reservados.</p>
+</footer>
+
+<!-- botón flotante whatsapp (comentado por defecto) -->
+<!-- <a href="https://wa.me/593998000001?text=Hola%2C%20estoy%20interesado%20en%20el%20proyecto%20GOMISHQUI%20y%20la%20feria%20de%20emprendimiento" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a> -->
+</body>
+</html>
